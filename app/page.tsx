@@ -24,7 +24,7 @@ export default function Home() {
     <>
       <Navbar />
 
-      <div className="p-6">
+      <div className="relative top-20 p-6">
         <SearchBar onSearch={setSearch} />
 
         <div className="grid md:grid-cols-3 gap-6">
