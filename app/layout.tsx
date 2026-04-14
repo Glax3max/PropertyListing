@@ -20,20 +20,20 @@ export const metadata = {
   keywords: ["real estate", "property", "buy house India"],
 };
 
-export async function generateMetadata({ params }: any) {
-  const { id } = await params;
-  const property = properties.find((p) => p.id === id);
+// export async function generateMetadata({ params }: any) {
+//   const { id } = await params;
+//   const property = properties.find((p) => p.id === id);
 
-  return {
-    title: `${property?.title} | ${property?.location}`,
-    description: property?.description,
-    openGraph: {
-      title: property?.title,
-      description: property?.description,
-      images: [property?.image],
-    },
-  };
-}
+//   return {
+//     title: `${property?.title} | ${property?.location}`,
+//     description: property?.description,
+//     openGraph: {
+//       title: property?.title,
+//       description: property?.description,
+//       images: [property?.image],
+//     },
+//   };
+// }
 
 export default function RootLayout({
   children,
