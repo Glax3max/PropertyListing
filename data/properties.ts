@@ -1,21 +1,11 @@
-export const properties = [
-  {
-    id: "1",
-    title: "Modern Apartment",
-    location: "Delhi",
-    rooms: 3,
-    price: "₹50L",
-    image: "/images/p1.jpg",
-    description: "A beautiful modern apartment in the city center.",
-  },
-  {
-    id: "2",
-    title: "Luxury Villa",
-    location: "Mumbai",
-    rooms: 5,
-    price: "₹2Cr",
-    image: "/images/p2.jpg",
-    description: "Spacious villa with private pool.",
-  },
-  // add 10–15 items
-];
+import { Property } from "@/types/property";
+
+export const properties: Property[] = Array.from({ length: 12 }).map((_, i) => ({
+  id: String(i + 1),
+  title: `Property ${i + 1}`,
+  location: ["Delhi", "Mumbai", "Bangalore"][i % 3],
+  rooms: (i % 5) + 1,
+  price: `₹${(i + 1) * 10}L`,
+  image:`/propert${Math.floor((i/2))}.jpg`,
+  description: "Beautiful property with modern amenities and great location.",
+}));

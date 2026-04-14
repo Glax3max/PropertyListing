@@ -1,18 +1,47 @@
 import Link from "next/link";
+import Image from "next/image";
+import { Property } from "@/types/property";
 
-export default function PropertyCard({ property }: any) {
+export default function PropertyCard({ property }: { property: Property }) {
   return (
     <Link href={`/property/${property.id}`}>
-      <div className="border rounded-xl overflow-hidden shadow hover:scale-105 transition">
-        <img src={property.image} className="h-48 w-full object-cover" />
+      <article
+        className="
+
+          bg-white/70 backdrop-blur-md
+          rounded-xl overflow-hidden
+          border border-gray-400
+          shadow-sm
+          hover:shadow-lg
+          transition-all duration-300
+        "
+      >
+        <div className="relative h-35 w-full ">
+          <Image
+            src={property.image}
+            alt={property.title}
+            fill
+            className="object-cover"
+          />
+        </div>
 
         <div className="p-4">
-          <h2 className="font-semibold text-lg">{property.title}</h2>
-          <p>{property.location}</p>
-          <p>{property.rooms} rooms</p>
-          <p className="font-bold">{property.price}</p>
+          <h2 className="text-lg font-semibold line-clamp-1">
+            {property.title}
+          </h2>
+
+          <p className="text-sm text-gray-500">
+            📍 {property.location}
+          </p>
+
+          <div className="flex justify-between mt-2 text-sm">
+            <span>{property.rooms} rooms</span>
+            <span className="font-semibold text-blue-600">
+              {property.price}
+            </span>
+          </div>
         </div>
-      </div>
+      </article>
     </Link>
   );
 }
