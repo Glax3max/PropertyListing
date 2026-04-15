@@ -4,19 +4,20 @@ import { Property } from "@/types/property";
 
 export default function PropertyCard({ property }: { property: Property }) {
   return (
-    <Link href={`/property/${property.id}`}>
+    <Link href={`/property/${property.id}`} className="block">
       <article
         className="
-
           bg-white/70 backdrop-blur-md
+          border border-gray-200
           rounded-xl overflow-hidden
-          border border-gray-400
-          shadow-sm
-          hover:shadow-lg
+
+          shadow-sm hover:shadow-md
           transition-all duration-300
+          hover:-translate-y-0.5
         "
       >
-        <div className="relative h-35 w-full ">
+        {/* Image */}
+        <div className="relative h-36 w-full">
           <Image
             src={property.image}
             alt={property.title}
@@ -25,16 +26,17 @@ export default function PropertyCard({ property }: { property: Property }) {
           />
         </div>
 
-        <div className="p-4">
-          <h2 className="text-lg font-semibold line-clamp-1">
+        {/* Content */}
+        <div className="p-3 space-y-1">
+          <h2 className="text-sm font-semibold line-clamp-1">
             {property.title}
           </h2>
 
-          <p className="text-sm text-gray-500">
+          <p className="text-xs text-gray-500">
             📍 {property.location}
           </p>
 
-          <div className="flex justify-between mt-2 text-sm">
+          <div className="flex justify-between text-xs mt-1">
             <span>{property.rooms} rooms</span>
             <span className="font-semibold text-blue-600">
               {property.price}

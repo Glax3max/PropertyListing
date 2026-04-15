@@ -6,4 +6,5 @@ export interface Property {
   price: string;
   image: string;
   description: string;
+  amenities:string[];
 }
